@@ -1,6 +1,3 @@
-command=None
-shopping_list = {}
-
 def add_position(shopping_list):
     position = input('Введите название и количество')
     name, number = position.split()
@@ -21,20 +18,25 @@ def show_shopping_list(shopping_list):
     for key in keys:
         print(key, shopping_list[key])
 
+#Сделать функцией print
 def undefined(shopping_list):
     print ('Я вас не понял, введите одну из команд: [добавить, удалить, показать, выход]')
 
-def action(command):
-    command=input('Введите команду')
-    if command == 'добавить':
+#Сделать функцией конструкцию с if
+def action(x):
+    if x == 'добавить':
         shopping_list = add_position(shopping_list)
-    elif command == 'удалить':
+    elif x == 'удалить':
         shopping_list = remove_position(shopping_list)
-    elif command == 'показать':
+    elif x == 'показать':
         show_shopping_list(shopping_list)
-    elif command == 'выход':
-        exit()
+    elif x == 'выход':
+        exit
     else:
         undefined(shopping_list)
-        
-command=action(command)
+
+command = None
+shopping_list = {}
+while True:
+    command = input('Введите команду')
+    action(command)
